@@ -38,7 +38,7 @@ variable "v1" {
              }
 
         subnet-3={
-            name_subnet = "subnet1appgateway"
+          name_subnet = "subnet1appgateway"
           address_prefixes = ["10.10.101.0/24"]
           vnet_name = "vnet1"
 
@@ -54,3 +54,26 @@ variable "v1" {
   }
   }
 
+variable "nsg" {
+    description = "This is created to define NSG rules"
+    type = map(any)
+    default = {
+
+      "NSG_Rule1" = {
+          name = "NSG1"
+          subnet_name = "subnet1"
+          address_prefixes = ["10.10.10.0/24"]
+          location = "East Us"
+      }
+
+      "NSG_Rule2" = {
+          name = "NSG2"
+           subnet_name = "subnet1"
+          address_prefixes = ["10.10.10.0/24"]
+          location = "South India"
+
+      }
+
+    }
+  
+}
